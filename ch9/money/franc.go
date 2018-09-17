@@ -5,18 +5,17 @@ type Franc struct {
 	Money
 }
 
-// NewFranc is a constructor of Franc.
-func NewFranc(amount int) *Franc {
-	dollar := &Franc{Money{amount: amount}}
-	return dollar
-}
-
 // Times multiplies number to Franc.
-func (f *Franc) Times(multiplier int) *Franc {
-	return NewFranc(f.amount * multiplier)
+func (f *Franc) Times(multiplier int) *Money {
+	return NewMoney(f.amount*multiplier, f.Currency())
 }
 
 // Equals compares two Francs.
 func (f *Franc) Equals(f2 *Franc) bool {
 	return f.Money.Equals(&f2.Money)
+}
+
+// Currency returns currency.
+func (f *Franc) Currency() string {
+	return f.Money.Currency()
 }

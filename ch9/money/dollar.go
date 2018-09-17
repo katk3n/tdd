@@ -5,18 +5,17 @@ type Dollar struct {
 	Money
 }
 
-// NewDollar is a constructor of Dollar.
-func NewDollar(amount int) *Dollar {
-	dollar := &Dollar{Money{amount: amount}}
-	return dollar
-}
-
 // Times multiplies number to Dollar.
-func (d *Dollar) Times(multiplier int) *Dollar {
-	return NewDollar(d.amount * multiplier)
+func (d *Dollar) Times(multiplier int) *Money {
+	return NewMoney(d.amount*multiplier, d.Currency())
 }
 
 // Equals compares two Dollars.
 func (d *Dollar) Equals(d2 *Dollar) bool {
 	return d.Money.Equals(&d2.Money)
+}
+
+// Currency returns currency.
+func (d *Dollar) Currency() string {
+	return d.Money.Currency()
 }

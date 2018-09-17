@@ -17,6 +17,7 @@ func TestEquality(t *testing.T) {
 	assert.False(t, NewDollar(5).Equals(NewDollar(6)))
 	assert.True(t, NewFranc(5).Equals(NewFranc(5)))
 	assert.False(t, NewFranc(5).Equals(NewFranc(6)))
+	// assert.False(t, NewFranc(5).Equals(NewDollar(5)))  // Go does not implement extend
 }
 
 func TestFrancMultiplication(t *testing.T) {
